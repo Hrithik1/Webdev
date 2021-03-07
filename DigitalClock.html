@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            font-family: 'Roboto', sans-serif;
+            /* background-color: aliceblue; */
+        }
+
+        .heading {
+
+            background-color: whitesmoke;
+            text-align: center;
+            font-size: 50px;
+
+        }
+
+        .clockarea {
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .clockarea p {
+            font-size: 40px;
+        }
+    </style>
+    <script>
+        let a;
+        let date;
+        let time;
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        setInterval(() => {
+            a = new Date();
+            date = a.toLocaleDateString(undefined, options);
+            time = a.getHours() + ':' + a.getMinutes() + ':' + a.getSeconds();
+            document.getElementById('time').innerHTML = time;
+            document.getElementById('date').innerHTML = date;
+        }, 1000);
+    </script>
+</head>
+
+<body>
+    <div class="heading">
+        <h1>Digital Clock</h1>
+    </div>
+    <div class="clockarea">
+        <p>The time is :</p>
+        <p><b><span id="time"></span></b></p>
+        <hr>
+        <h3><b>Today is :</b></h3>
+        <p><b><span id="date"></span></span></b></p>
+    </div>
+</body>
+
+</html>
